@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-10">
         <div class="card">
           <div class="card-header">Manage Users</div>
           <div class="card-body">
@@ -27,7 +27,7 @@
                       <form action="{{route('admin.users.destroy', $user->id)}}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <button type="submit" name="button" class="btn btn-danger btn-sm">Delete</button>
+                        <button type="submit" name="btn" class="btn btn-danger btn-sm">Delete</button>
                       </form>
                     </td>
                   </tr>
