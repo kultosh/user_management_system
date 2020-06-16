@@ -22,7 +22,14 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{implode(', ', $user->roles()->get()->pluck('name')->toArray())}}</td>
-                    <td><a href="{{route('admin.users.edit', $user->id)}}"><button class="btn btn-primary btn-sm" name="button">Edit</button></a></td>
+                    <td>
+                      <a href="{{route('admin.users.edit', $user->id)}}" class="float-left"><button class="btn btn-primary btn-sm" name="button">Edit</button></a>
+                      <form action="{{route('admin.users.destroy', $user->id)}}" method="post">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <button type="submit" name="button" class="btn btn-danger btn-sm">Delete</button>
+                      </form>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>
