@@ -13,14 +13,16 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Roles</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($users as $user)
                   <tr>
-                    <th>{{$user->name}}</th>
-                    <th>{{$user->email}}</th>
-                    <th>{{implode(', ', $user->roles()->get()->pluck('name')->toArray())}}</th>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{implode(', ', $user->roles()->get()->pluck('name')->toArray())}}</td>
+                    <td><a href="{{route('admin.users.edit', $user->id)}}"><button class="btn btn-primary btn-sm" name="button">Edit</button></a></td>
                   </tr>
                 @endforeach
               </tbody>
