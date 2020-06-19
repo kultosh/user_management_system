@@ -38,6 +38,11 @@
                           <a href="{{route('admin.users.index')}}">Manage Users</a>
                         </li>
                       @endhasrole
+                      @impersonate()
+                         <li class="nav-item">
+                          <a href="{{route('admin.impersonate.destroy')}}">Stop Impersonating</a>
+                        </li>
+                      @endimpersonate
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -24,6 +24,7 @@
                     <td>{{implode(', ', $user->roles()->get()->pluck('name')->toArray())}}</td>
                     <td>
                       <a href="{{route('admin.users.edit', $user->id)}}" class="float-left"><button class="btn btn-primary btn-sm" name="button">Edit</button></a>
+                      <a href="{{route('admin.impersonate', $user->id)}}" class="float-left"><button class="btn btn-success btn-sm" name="button">Impersonate User</button></a>
                       <form action="{{route('admin.users.destroy', $user->id)}}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
